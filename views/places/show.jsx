@@ -1,7 +1,7 @@
 const React = require('react')
 const Def = require('../default')
 
-function show () {
+function show ({ place }) {
     return (
         <Def>
           <main>
