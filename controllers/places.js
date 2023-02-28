@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const places = require('../models/places.js')
+const places = require('../models')
 
 
 // went back through from part one/ started from scratch to get just get things better organized and corrected after the notes of advice i received from the last submissions
@@ -35,7 +35,7 @@ router.get('/new', (req, res) => {
 res.render('places/new')
 })
 
-// show error404
+// editing
 router.get('/:id', (req, res) => {
 db.Place.findById(req.params.id)
   .populate('comments')
@@ -46,63 +46,71 @@ db.Place.findById(req.params.id)
   })
 })
 
+router.post('/:id/comment', (req, res) => {
+  req.body.rant = req.body.rant ? true : false
+  db.Place.findById(req.params.id)
+    .then(place => {
+      db.Comment.create(req.body)
+        .then(comment => {
+          place.comments.push(comment.id)
+          place.save()
+            .then(res.redirect(`/places/${req.params.id}`))
+        })
+        .catch(err => {
+          res.status(404).render('error404')
+        })
+    })
+    .catch(err => {
+      res.status(404).render('error404')
+    })
+})
+
+// DELETE
+router.delete('/:id/comment/:commentId', (req, res) => {
+  db.comment.findByIdAndDelete(req.params.commentId)
+    .then(res.redirect(`/places/${req.params.id}`))
+    .catch(err => {
+     console.log(err)
+      res.status(404).render('error404')
+    })
+})
+
+// SHOW
+router.get('/:id', (req, res) => {
+  db.Place.findById(req.params.id)
+    .populate('comments')
+    .then(place => res.render('places/show', { place }))
+    .catch(err => {
+      console.log(err)
+      res.status(404).render('error404')
+    })
+})
+
 // DELETE
 router.delete('/:id', (req, res) => {
-db.Place.deleteOne({_id: req.params.id})
-  .then(() => res.redirect('/places'))
-  .catch(err => {
-    console.log(err)
-    res.status(404).render('error404')
-  })
+  db.Place.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect('/places'))
+    .catch(err => {
+      console.log(err)
+      res.status(404).render('error404')
+    })
 })
 
 // PUT
 router.put('/:id', (req, res) => {
-assignUndefined(req.body)
+  assignUndefined(req.body)
 
-db.Place.updateOne({_id: req.params.id}, {$set: req.body})
-  .then(() => res.redirect(`/places/${req.params.id}`))
-  .catch(err => {
-    console.log(err)
-    res.status(404).render('error404')
-  })
-})
-
-// EDIT error
-router.get('/:id/edit', (req, res) => {
-db.Place.findById(req.params.id)
-  .then(place => res.render('places/edit', { place }))
-  .catch(err => {
-    console.log(err)
-    res.status(404).render('error404')
-  })
-})
-
-// posting comment
-router.post('/:id/comment', (req, res) => {
-console.log(req.body)
-req.body.rant = req.body.rant ? true : false
-db.Place.findById(req.params.id)
-  .then(place => {
-    db.Comment.create(req.body)
-      .then(comment => {
-        place.comments.push(comment.id)
-        place.save()
-          .then(res.redirect(`/places/${req.params.id}`))
-      })
-      .catch(err => {
-        res.status(404).render('error404')
-      })
-  })
-  .catch(err => {
-    res.status(404).render('error404')
-  })
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => res.redirect(`/places/${req.params.id}`))
+    .catch(err => {
+      console.log(err)
+      res.status(404).render('error404')
+    })
 })
 
 function assignUndefined(object) {
-for (const prop in object) if (!object[prop]) {object[prop] = undefined}
+  for (const prop in object) if (!object[prop]) {object[prop] = undefined}
 }
 
 module.exports = router
-
 

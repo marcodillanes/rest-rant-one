@@ -106,6 +106,34 @@ button, input[type='submit'] { margin-top: 12px; }
     grid-column: 3;
 }
 
+.rating-container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px black;
+    box-sizing: border-box;
+}
+
+.rating { margin: 0; }
+
+.star-container { position: relative; }
+
+.stars {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.star-cover {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background: white;
+}
+
+
   
   /* Photo by <a href="https://unsplash.com/@pablomerchanm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pablo Merchán Montes</a> on <a href="https://unsplash.com/s/photos/restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */
   
