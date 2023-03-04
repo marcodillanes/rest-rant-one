@@ -10,7 +10,7 @@ db.Place.create([{
     srcName: "unsplash",
     srcUrl: "https://unsplash.com/@pablomerchanm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 }, {
-    name: 'Coding Cafe',
+    name: 'Coding zCafe',
     city: 'Phoenix',
     state: 'AZ',
     cuisines: 'Coffee, Bakery',
@@ -19,8 +19,11 @@ db.Place.create([{
     srcName: 'unsplash',
     srcUrl: "https://unsplash.com/@leyien_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 }])
-    .then(() => process.exit())
-    .catch(err => {
-        console.log(err)
-        process.exit()
-    })
+.then(() => {
+    console.log("Success");
+    process.exit();
+  })
+  .catch((err) => {
+    console.log("Failed", err);
+    process.exit();
+  });

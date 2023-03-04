@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const places = require('../models')
+const db = require('../models')
 
 
 // went back through from part one/ started from scratch to get just get things better organized and corrected after the notes of advice i received from the last submissions
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     })
 })
 
-// creating with mongodb
+// creating 
 router.post('/', (req, res) => {
 assignUndefined(req.body)
 
@@ -30,7 +30,7 @@ db.Place.create(req.body)
   })
 })
 
-// new for places
+// new 
 router.get('/new', (req, res) => {
 res.render('places/new')
 })
@@ -113,4 +113,3 @@ function assignUndefined(object) {
 }
 
 module.exports = router
-

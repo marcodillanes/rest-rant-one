@@ -4,138 +4,63 @@ body {
 }
 
 main {
-  margin-right: 20px;
-  margin-left: 20px;
+  max-width: 800px;
+  margin: auto;
+  padding: 12px;
   background-color: white;
 }
 
+@media only screen and (max-width: 820px){
+  main { margin: auto 20px; }
+}
 
 h1 {
-    text-align: center;
-    color: cornflowerblue;
-  }
+  text-align: center;
+  color: cornflowerblue;
+}
 
 nav {
-    background-color: cornflowerblue;
-    padding: 10px;
+  background-color: cornflowerblue;
+  padding: 10px;
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
+  list-style-type: none;
+  margin: 0;
 }
 
 nav li {
-    display: inline;
-    margin-right: 25px;
+  display: inline;
+  margin-right: 25px;
 }
 
 nav a {
-    color: white;
-    font-size: 1.5em;
+  color: white;
+  font-size: 1.5em;
 }
 
 nav a:hover {
-    color: pink;
-    text-decoration: none;
+  color: pink;
+  text-decoration: none;
 }
 
 button, input[type='submit'] { margin-top: 12px; }
 
+
+
 .img-container {
-    width: fit-content;
-    margin: auto;
-    position: relative;
+  width: fit-content;
+  margin: auto;
+  position: relative;
 }
 
 .attribute {
-    position: absolute;
-    background-color: white;
-    left: 0;
-    bottom: 0;
-    font-size: 0.5rem;
+  position: absolute;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+  font-size: 0.5rem;
 }
 
 .restaurant-img { max-width: 100%; }
 
-.comments-container {
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    width: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-
-.rave { background: #198754; }
-
-.rant { background: #dc3545; }
-
-.comment-form {
-    display: grid;
-    grid: 1fr 1fr 3fr 1fr / repeat(3, 1fr);
-    gap: 0 10px;
-    width: 100%;
-    max-width: 600px;
-    margin: 10px auto;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
-.comment-form div {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-}
-
-.comment-legend {
-    grid-column: span 3;
-}
-
-.comment-rant input {
-    margin: 10px;
-}
-
-.comment-content {
-    grid-column: span 3;
-}
-
-.comment-submit {
-    grid-column: 3;
-}
-
-.rating-container {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 6px black;
-    box-sizing: border-box;
-}
-
-.rating { margin: 0; }
-
-.star-container { position: relative; }
-
-.stars {
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.star-cover {
-    height: 100%;
-    position: absolute;
-    right: 0;
-    background: white;
-}
-
-
-  
-  /* Photo by <a href="https://unsplash.com/@pablomerchanm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pablo Merchán Montes</a> on <a href="https://unsplash.com/s/photos/restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */
-  
-  /* Photo by <a href="https://unsplash.com/@leyien_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Le Yien</a> on <a href="https://unsplash.com/s/photos/restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */
-  

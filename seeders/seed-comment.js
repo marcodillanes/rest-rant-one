@@ -7,9 +7,9 @@ async function seed() {
 
     // Create a fake sample comment.
     let comment = await db.Comment.create({
-        author: 'Simple Sam',
+        author: 'Eren Jaeger',
         rant: false,
-        stars: 3.0,
+        stars: 5.0,
         content: "The food was good and the atmosphere was nice."
     })
 

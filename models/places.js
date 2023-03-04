@@ -2,12 +2,12 @@ const mongoose = require('mongoose')
 
 const placeSchema = new mongoose.Schema({
   name: {type: String, required: true},
-  city: {type: String, default: 'Somewhere'},
+  city: {type: String, default: 'Knowhere'},
   state: {type: String, default: 'USA'},
   founded: {
     type: Number,
     min: [803, "The oldest restaraunt was built in 803, try again!"],
-    max: [new Date().getFullYear(), 'Restaraunts from the future are not valid yet.']
+    max: [new Date().getFullYear(), 'Restaraunts from the future do not exist! or do they?']
   },
   cuisines: {type: String, required: true},
   pic: {type: String, default: '/images/REST-ONE.jpg'},

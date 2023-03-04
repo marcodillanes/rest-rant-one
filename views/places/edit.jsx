@@ -1,7 +1,7 @@
 const React = require('react')
 const Def = require('../default')
 
-function Edit({ place }) {
+function edit({ place }) {
     return (
         <Def>
             <main>
@@ -109,4 +109,4 @@ function Edit({ place }) {
     )
 }
 
-module.exports = Edit
+module.exports = edit

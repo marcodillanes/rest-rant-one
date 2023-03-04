@@ -22,5 +22,3 @@ function show ({ place }) {
 }
 
 module.exports = show
-
-
